@@ -56,7 +56,7 @@ int main()
 	    while(r--)
 	    {
 	        cin>>a>>b;
-	        ll st=idx[a],en=idx[b],vis[n+5]={0},d[n+5];
+	        ll st=idx[a],en=idx[b],d[n+5];
 	        for(i=1;i<=n;i++) d[i]=MAX;
 	        d[st]=0;
 	        priority_queue<pll,vector<pll>,greater<pll>> q;
@@ -65,11 +65,10 @@ int main()
 	        {
 	            pll z=q.top();
 	            q.pop();
-	            vis[z.s]=1;
 	            for(i=0;i<v[z.s].size();i++)
 	            {
 	                pll y=v[z.s][i];
-	                if(!vis[y.s] && d[y.s]>z.f+y.f) 
+	                if(d[y.s]>z.f+y.f) 
 	                {
 	                    q.push({y.f+z.f,y.s});
 	                    d[y.s]=y.f+z.f;
